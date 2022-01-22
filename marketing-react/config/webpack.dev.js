@@ -6,10 +6,15 @@ const webPackCommon = require("./webpack.common");
 
 const devConfig = {
   mode: "development",
-  entry: "./src/index.jsx",
+  entry: "./src/index.js",
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "../dist"),
+  },
+  resolve: {
+    extensions: [".js", ".jsx", ".json"],
+    // para webpack entender a extensão jsx
+    // se for usar tsx tambem precisa colocar aqui
   },
   devServer: {
     static: {
