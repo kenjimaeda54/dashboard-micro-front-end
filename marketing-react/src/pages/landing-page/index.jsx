@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "../card";
+import { Card } from "../../components/card";
 import {
   Container,
   Title,
@@ -16,7 +16,7 @@ import {
   Finally,
 } from "./styles";
 
-const LandingPage = () => {
+export const LandingPage = () => {
   return (
     <Container>
       <div>
@@ -29,11 +29,15 @@ const LandingPage = () => {
               so folks dont simply skip over it entirely
             </Description>
             <WrapButton>
-              <Button isClicked={false}>
-                <TitleButton isClicked={false}>Pricing</TitleButton>
+              <Button userClick={false}>
+                <TitleButton to="pricing" userClick={false}>
+                  Pricing
+                </TitleButton>
               </Button>
-              <Button isClicked={true}>
-                <TitleButton isClicked={true}>Pricing</TitleButton>
+              <Button userClick={true}>
+                <TitleButton to="pricing" userClick={true}>
+                  Pricing
+                </TitleButton>
               </Button>
             </WrapButton>
           </SubWrap>
@@ -56,5 +60,3 @@ const LandingPage = () => {
     </Container>
   );
 };
-
-export default LandingPage;

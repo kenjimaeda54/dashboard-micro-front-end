@@ -7,6 +7,7 @@ export const Container = styled.div`
   gap: 20px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   background-color: ${({ theme }) => theme.colors.primary};
+  border-radius: 4px;
 `;
 
 export const Image = styled.img`
@@ -35,7 +36,7 @@ export const SubTitle = styled.p`
   color: ${({ theme }) => theme.colors.black};
 `;
 
-export const WrapButton = styled.button`
+export const WrapButton = styled.div`
   display: flex;
   gap: 35px;
   background-color: transparent;

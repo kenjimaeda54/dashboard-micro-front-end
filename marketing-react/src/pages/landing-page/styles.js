@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   display: flex;
@@ -52,12 +53,13 @@ export const WrapButton = styled.div`
   justify-content: space-around;
 `;
 
-export const TitleButton = styled.span`
+export const TitleButton = styled(Link)`
+  text-decoration: none;
   font-size: 19px;
   line-height: 25px;
   text-align: center;
-  color: ${({ isClicked, theme }) =>
-    isClicked ? theme.colors.blue : theme.colors.primary};
+  color: ${({ userClick, theme }) =>
+    userClick ? theme.colors.blue : theme.colors.primary};
   font-weight: 300;
 `;
 
@@ -66,8 +68,8 @@ export const Button = styled.button`
   padding: 10px 5px;
   width: 90px;
   border-radius: 5px;
-  background-color: ${({ isClicked, theme }) =>
-    isClicked ? "transparent" : theme.colors.blue};
+  background-color: ${({ userClick, theme }) =>
+    userClick ? "transparent" : theme.colors.blue};
   justify-content: center;
   align-items: center;
   cursor: pointer;
