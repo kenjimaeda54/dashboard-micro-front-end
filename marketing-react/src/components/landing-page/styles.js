@@ -86,9 +86,10 @@ export const Button = styled.button`
 
 export const Section = styled.section`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   width: 100%;
-  gap: 15px;
+  grid-row-gap: 20px;
+  justify-content: space-between;
   margin-top: 50px;
 `;
 
