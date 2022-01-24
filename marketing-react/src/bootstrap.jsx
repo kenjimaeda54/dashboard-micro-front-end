@@ -3,12 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./app";
 
 const mount = (element) => {
-  ReactDOM.render(
-    <StrictMode>
-      <App />
-    </StrictMode>,
-    element
-  );
+  ReactDOM.render(<App />, element);
 };
 
 if (process.env.NODE_ENV === "development") {

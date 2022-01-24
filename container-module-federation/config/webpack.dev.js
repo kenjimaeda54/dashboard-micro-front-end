@@ -34,9 +34,9 @@ const devConfig = {
     new ModuleFederationPlugin({
       name: 'App',
       remotes: {
-        marketing: 'marketing@http://localhost:4050',
-      }
-    })
+        marketing: 'marketing@http://localhost:3050/remoteEntry.js',
+      },
+    }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
       title: 'Marketing React',
