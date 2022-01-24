@@ -4,6 +4,7 @@ const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
 const webPackCommon = require("./webpack.common");
+const { dependencies } = require("../package.json");
 
 const devConfig = {
   mode: "development",
@@ -37,6 +38,9 @@ const devConfig = {
       exposes: {
         "./MarketApp": "./src/bootstrap.jsx",
       },
+      // compartilhando as dependências aqui diminuo bastante o tamanho do arquivo
+      // quando bate com as dependências do container se for igual ele vai decidir usar apenas um
+      shared: dependencies,
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",

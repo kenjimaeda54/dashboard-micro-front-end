@@ -58,8 +58,7 @@ export const TitleButton = styled(Link)`
   font-size: 19px;
   line-height: 25px;
   text-align: center;
-  color: ${({ userClick, theme }) =>
-    userClick ? theme.colors.blue : theme.colors.primary};
+  color: ${({ theme }) => theme.colors.blue};
   font-weight: 300;
 `;
 
@@ -68,8 +67,7 @@ export const Button = styled.button`
   padding: 10px 5px;
   width: 90px;
   border-radius: 5px;
-  background-color: ${({ userClick, theme }) =>
-    userClick ? "transparent" : theme.colors.blue};
+  background-color: ${({ theme }) => theme.colors.white};
   justify-content: center;
   align-items: center;
   cursor: pointer;

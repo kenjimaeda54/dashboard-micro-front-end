@@ -29,15 +29,11 @@ export const LandingPage = () => {
               so folks dont simply skip over it entirely
             </Description>
             <WrapButton>
-              <Button userClick={false}>
-                <TitleButton to="pricing" userClick={false}>
-                  Pricing
-                </TitleButton>
+              <Button>
+                <TitleButton to="pricing">Pricing</TitleButton>
               </Button>
-              <Button userClick={true}>
-                <TitleButton to="pricing" userClick={true}>
-                  Pricing
-                </TitleButton>
+              <Button>
+                <TitleButton to="pricing">Pricing</TitleButton>
               </Button>
             </WrapButton>
           </SubWrap>
