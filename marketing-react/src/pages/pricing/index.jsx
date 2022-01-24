@@ -1,5 +1,5 @@
 import React from "react";
-import { CardPricing } from "../card-pricing";
+import { CardPricing } from "../../components/card-pricing";
 import {
   Container,
   Title,

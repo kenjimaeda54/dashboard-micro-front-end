@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { Pricing } from "../components/pricing";
+import { Pricing } from "../pages/pricing";
 import { LandingPage } from "../pages/landing-page";
 
 export const RoutesApp = () => {
