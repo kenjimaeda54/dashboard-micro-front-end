@@ -2,6 +2,7 @@ const { merge } = require("webpack-merge");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const { ModuleFederationPlugin } = require("webpack").container;
 const webPackCommon = require("./webpack.common");
 
 const devConfig = {
@@ -30,6 +31,13 @@ const devConfig = {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new ModuleFederationPlugin({
+      name: "marketing",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./MarketApp": "./src/bootstrap.js",
+      },
+    }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
       title: "Marketing React",
