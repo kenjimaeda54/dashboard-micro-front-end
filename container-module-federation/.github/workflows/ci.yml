@@ -5,7 +5,7 @@ on:
     branches:
       - 'master'
     paths:
-      - '/container-module-federation'
+      - '.'
     # nosso repo tem varias pastas e  diretórios
     #aqui garanto que ci/cd vai rodar separado
     #
