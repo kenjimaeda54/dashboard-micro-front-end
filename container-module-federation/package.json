@@ -4,7 +4,8 @@
   "scripts": {
     "start": "webpack serve --config config/webpack.dev.js",
     "format:check": "prettier --check '**/*.{js,jsx,ts,tsx,css}'",
-    "format": "prettier --write '**/*.{js,jsx,ts,tsx,css}'"
+    "format": "prettier --write '**/*.{js,jsx,ts,tsx,css}'",
+    "build": "webpack --config config/webpack.prod.js"
   },
   "dependencies": {
     "react": "^17.0.1",

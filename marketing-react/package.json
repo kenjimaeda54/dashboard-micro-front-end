@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "webpack serve --config config/webpack.dev.js",
-    "build": "webpack"
+    "build": "webpack  --config config/webpack.prod.js"
   },
   "dependencies": {
     "react": "^17.0.1",
