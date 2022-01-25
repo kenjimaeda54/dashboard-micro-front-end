@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: "16.x"
       - run: cd container-module-federation
-      - run: ls -l
+      - run: echo ei estou sim rodando $(ls -l)
       - run: node --version
       - run: npm install
       - run: npm run build
