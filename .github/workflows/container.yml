@@ -31,7 +31,7 @@ jobs:
           npm install
           npm run build
         env:
-          PRODUCTION_DOMAIN: https://d2bfxzyow9zlxo.cloudfront.net
+          PRODUCTION_DOMAIN: ${{ secrets.PRODUCTION_DOMAIN }}
       #  a partir do run permite usar o uses como dicionario
       # - uses
       - uses: chrislennon/action-aws-cli@v1.1
