@@ -1,21 +1,25 @@
-name: CI
+name: Container deployment
 
 on:
   push:
     branches:
       - "master"
-    # paths:
-    #   - "/container-module-federation"
+    paths:
+      - "./container-module-federation/**"
     # nosso repo tem varias pastas e  diretórios
     # aqui garanto que ci/cd vai rodar separado
 
-# defaults:
-#   run:
-#     working-directory: "/container-module-federation"
+defaults:
+  run:
+    working-directory: "./container-module-federation/**"
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      #https://github.com/chrislennon/action-aws-cli
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
       - uses: actions/checkout@v2
       - name: Prepared node js
@@ -27,21 +31,15 @@ jobs:
           cd container-module-federation
           npm install
           npm run build
+        env:
+          PRODUCTION_DOMAIN: ${{ secrets.PRODUCTION_DOMAIN }}
       #  a partir do run permite usar o uses como dicionario
       # - uses
       - uses: chrislennon/action-aws-cli@v1.1
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: "true"
-      # dist e aonde gerado o build
+          # dist e aonde gerado o build
       - run: |
           cd container-module-federation
           aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/container/latest
-        env:
-          #https://github.com/chrislennon/action-aws-cli
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }}  --paths '/container/latest/index.html'
-        env:
-          #https://github.com/chrislennon/action-aws-cli
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }}  --paths '/container/latest/index.html'

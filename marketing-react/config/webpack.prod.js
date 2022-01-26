@@ -8,6 +8,7 @@ const productionConfig = {
   mode: "production",
   output: {
     filename: "[name].[contenthash].js",
+    publicPath: "/marketing/latest/",
   },
   resolve: {
     extensions: [".js", ".jsx", ".json"],

@@ -9,7 +9,7 @@ const configProduction = {
   mode: 'production',
   output: {
     filename: '[name].[contenthash].js',
-    publicPath: '/container/latest',
+    publicPath: '/container/latest/',
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
@@ -19,7 +19,7 @@ const configProduction = {
       name: 'App',
       remotes: {
         // posso ter vários remotes entry nesse caso
-        marketing: `marketing@${domain}/marketing/remoteEntry.js`,
+        marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`,
       },
       shared: dependencies,
     }),
