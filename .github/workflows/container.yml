@@ -35,10 +35,11 @@ jobs:
       #  a partir do run permite usar o uses como dicionario
       # - uses
       - uses: chrislennon/action-aws-cli@v1.1
-      - name: Printar o domain
-        run: echo "olha o domain $PRODUCTION_DOMAIN !!"
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: "true"
+      - name: Printar o domain
+        run: |
+          echo "olha o domain $PRODUCTION_DOMAIN !!"
           # dist e aonde gerado o build
       - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/container/latest
       - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }}  --paths '/container/latest/index.html'
