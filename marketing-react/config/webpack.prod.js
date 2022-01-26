@@ -5,6 +5,7 @@ const { dependencies } = require("../package.json");
 
 //para produção nao importo com o html
 //porque a ideia e so expor o componente o html sera o container
+
 const productionConfig = {
   mode: "production",
   output: {
