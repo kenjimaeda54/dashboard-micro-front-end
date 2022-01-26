@@ -28,7 +28,6 @@ jobs:
           node-version: "16.x"
       - name: Build project
         run: |
-          cd marketing-react
           npm install
           npm run build
       #  a partir do run permite usar o uses como dicionario
@@ -38,6 +37,5 @@ jobs:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: "true"
       # dist e aonde gerado o build
       - run: |
-          cd marketing-react
           aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/marketing/latest
           aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }}  --paths '/marketing/latest/remoteEntry.js'
