@@ -29,7 +29,12 @@ jobs:
           npm run build
       #  a partir do run permite usar o uses como dicionario
       # - uses
-      - uses: unfor19/install-aws-cli-action@v1
+      - uses: aws-actions/setup-sam@v1
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: sa-east-1
       # dist e aonde gerado o build
       - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/container/latest
         env:
