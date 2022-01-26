@@ -25,14 +25,13 @@ jobs:
       - name: Build project
         run: |
           cd container-module-federation
-          echo ei estou sim rodando $(ls -l)
-          node --version
           npm install
           npm run build
       #  a partir do run permite usar o uses como dicionario
       # - uses
       - uses: chrislennon/action-aws-cli@v1.1
       # dist e aonde gerado o build
+      - run: echo ${{ secrets.AWS_S3_BUCKET  }}
       - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET }}/container/latest
         env:
           #https://github.com/chrislennon/action-aws-cli
