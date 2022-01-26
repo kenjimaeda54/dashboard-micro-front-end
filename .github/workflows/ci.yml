@@ -27,6 +27,7 @@ jobs:
           cd container-module-federation
           npm install
           npm run build
+          echo "olha oque tem aqui apos o build $(ls -l)"
       #  a partir do run permite usar o uses como dicionario
       # - uses
       - uses: aws-actions/setup-sam@v1
