@@ -27,15 +27,11 @@ jobs:
           cd container-module-federation
           npm install
           npm run build
-          echo "olha oque tem aqui apos o build $(ls -l)"
       #  a partir do run permite usar o uses como dicionario
       # - uses
-      - uses: aws-actions/setup-sam@v1
-      - uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: sa-east-1
+      - uses: chrislennon/action-aws-cli@v1.1
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: "true"
       # dist e aonde gerado o build
       - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/container/latest
         env:
