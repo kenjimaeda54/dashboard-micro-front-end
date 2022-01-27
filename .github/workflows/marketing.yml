@@ -8,7 +8,6 @@ on:
     #   - "marketing-react/**"
     # nosso repo tem varias pastas e  diretórios
     # aqui garanto que ci/cd vai rodar separado
-    #
 
 defaults:
   run:
