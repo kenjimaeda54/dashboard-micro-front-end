@@ -22,6 +22,10 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.(JPG|JPEG|PNG)$/i,
+        use: ["file-loader"],
+      },
     ],
   },
 };
