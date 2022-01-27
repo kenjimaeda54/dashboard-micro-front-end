@@ -31,8 +31,6 @@ jobs:
         run: |
           npm install
           npm run build
-          echo OLha oque tem aqui ${{ secrets.PRODUCTION_DOMAIN }}
-          echo olha oque tem no bucket ${{ secrets.AWS_S3_BUCKET_NAME }}
         env:
           PRODUCTION_DOMAIN: ${{ secrets.PRODUCTION_DOMAIN }}
       #  a partir do run permite usar o uses como dicionario
