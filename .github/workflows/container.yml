@@ -31,6 +31,8 @@ jobs:
         run: |
           npm install
           npm run build
+          cd dist 
+          echo  "estou no dist $(ls -l)"
         env:
           PRODUCTION_DOMAIN: ${{ secrets.PRODUCTION_DOMAIN }}
       #  a partir do run permite usar o uses como dicionario
