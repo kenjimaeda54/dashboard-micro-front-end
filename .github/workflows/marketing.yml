@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - "master"
-    paths:
-      - "marketing-react/**"
+    # paths:
+    #   - "marketing-react/**"
     # nosso repo tem varias pastas e  diretórios
     # aqui garanto que ci/cd vai rodar separado
 
