@@ -1,18 +1,16 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { Router } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import LandingPage from "./pages/landing-page";
 import GlobalStyles from "./GlobalStyles";
 import theme from "./styles/theme";
 import { RoutesApp } from "./routes";
 
-const App = () => {
+const App = ({ history }) => {
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <GlobalStyles />
-        <RoutesApp />
-      </BrowserRouter>
+      <GlobalStyles />
+      <RoutesApp history={history} />
     </ThemeProvider>
   );
 };

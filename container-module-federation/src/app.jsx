@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import MarketingReact from './components/marketing-react';
 import GlobalStyle from './GlobalStyle';
@@ -8,9 +9,11 @@ import theme from './styles/theme';
 export const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Header />
-      <MarketingReact />
+      <BrowserRouter>
+        <GlobalStyle />
+        <Header />
+        <MarketingReact />
+      </BrowserRouter>
     </ThemeProvider>
   );
 };

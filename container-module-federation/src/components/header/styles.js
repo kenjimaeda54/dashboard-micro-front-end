@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.header`
   display: flex;
@@ -9,12 +10,18 @@ export const Container = styled.header`
   width: 100%;
 `;
 
-export const Title = styled.h3`
+export const Title = styled(Link)`
   font-size: 17px;
   line-height: 21px;
   font-weight: 500;
   color: ${({ theme }) => theme.colors.black};
   text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+  }
 `;
 
 export const Button = styled.button`

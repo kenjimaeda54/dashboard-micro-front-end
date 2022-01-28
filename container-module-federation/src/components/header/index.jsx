@@ -4,7 +4,7 @@ import { Container, Title, Button, TitleButton } from './styles';
 export default () => {
   return (
     <Container>
-      <Title>App</Title>
+      <Title to='/'>App</Title>
       <Button>
         <TitleButton>Login</TitleButton>
       </Button>
