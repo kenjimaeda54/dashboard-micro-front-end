@@ -4,10 +4,10 @@ on:
   push:
     branches:
       - "master"
-    # paths:
-    #   - "container-module-federation/**"
-    # # nosso repo tem varias pastas e  diretórios
-    # # aqui garanto que ci/cd vai rodar separado
+    paths:
+      - "container-module-federation/**"
+    # nosso repo tem varias pastas e  diretórios
+    # aqui garanto que ci/cd vai rodar separado
 
 defaults:
   run:
@@ -31,8 +31,6 @@ jobs:
         run: |
           npm install
           npm run build
-          cd dist 
-          echo  "estou no dist $(ls -l)"
         env:
           PRODUCTION_DOMAIN: ${{ secrets.PRODUCTION_DOMAIN }}
       #  a partir do run permite usar o uses como dicionario

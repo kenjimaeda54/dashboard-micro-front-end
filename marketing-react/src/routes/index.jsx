@@ -6,7 +6,7 @@ import { LandingPage } from "../pages/landing-page";
 export const RoutesApp = () => {
   return (
     <Routes>
-      <Route path="*" element={<LandingPage />} />
+      <Route path="/" element={<LandingPage />} />
       <Route path="/pricing" element={<Pricing />} />
     </Routes>
   );

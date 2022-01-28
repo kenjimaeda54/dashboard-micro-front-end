@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import { ThemeProvider } from 'styled-components';
 import MarketingReact from './components/marketing-react';
+import GlobalStyle from './GlobalStyle';
+import Header from './components/header';
+import theme from './styles/theme';
 
 export const App = () => {
   return (
-    <div>
-      <h1>ola mundo!!!</h1>
-      <hr />
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Header />
       <MarketingReact />
-    </div>
+    </ThemeProvider>
   );
 };
