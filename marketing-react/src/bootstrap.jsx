@@ -4,8 +4,12 @@ import { createMemoryHistory, createBrowserHistory } from "history";
 import ReactDOM from "react-dom";
 import App from "./app";
 
-const mount = (element, { onNavigate, defaultHistory }) => {
-  const history = defaultHistory || createMemoryHistory();
+const mount = (element, { onNavigate, defaultHistory, initialPathName }) => {
+  const history =
+    defaultHistory ||
+    createMemoryHistory({
+      initialEntries: [initialPathName],
+    });
   if (onNavigate) {
     history.listen(onNavigate);
   }

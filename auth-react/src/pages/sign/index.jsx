@@ -42,7 +42,9 @@ export const SignIn = () => {
             <Button>
               <TitleButton>Sing Up</TitleButton>
             </Button>
-            <ButtonLink>Don't have an account?Sign ups</ButtonLink>
+            <ButtonLink to="/auth/signup">
+              Don't have an account?Sign up
+            </ButtonLink>
           </Footer>
         </Article>
         <FooterTitle>Copyright@ Your Website 2020.</FooterTitle>

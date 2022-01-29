@@ -37,6 +37,7 @@ const devConfig = {
       name: 'App',
       remotes: {
         marketing: 'marketing@http://localhost:3050/remoteEntry.js',
+        auth: 'auth@http://localhost:2050/remoteEntry.js',
       },
       shared: dependencies,
     }),

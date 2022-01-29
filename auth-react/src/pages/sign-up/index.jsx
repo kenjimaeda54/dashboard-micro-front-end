@@ -50,7 +50,9 @@ export const SignUp = () => {
             <Button>
               <TitleButton>Sing Up</TitleButton>
             </Button>
-            <ButtonLink>Already have an account? Sing in</ButtonLink>
+            <ButtonLink to="/auth/signin">
+              Already have an account? Sing in
+            </ButtonLink>
           </Footer>
         </Article>
         <FooterTitle>Copyright@ Your Website 2020.</FooterTitle>

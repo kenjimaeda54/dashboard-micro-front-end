@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { mount, handleNavigation } from 'marketing/MarketApp';
+import { mount } from 'marketing/MarketApp';
 import { useHistory } from 'react-router-dom';
 
 export default () => {
@@ -10,10 +10,14 @@ export default () => {
   //e o pai,agora a funcao mount recebe dois parâmetro, um elemento html
   //e um objeto que contem as funções de navegação
   useEffect(() => {
+    console.log(history.location.pathname);
     const { onParentNavigate } = mount(refMarketing.current, {
+      initialPathName: history.location.pathname,
       onNavigate: ({ pathname: route }) => {
         const { pathname } = history.location;
-        if (pathname !== route) return history.push(route);
+        if (pathname !== route) {
+          history.push(route);
+        }
       },
     });
     history.listen(onParentNavigate);

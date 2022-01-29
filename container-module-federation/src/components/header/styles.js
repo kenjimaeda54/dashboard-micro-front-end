@@ -38,9 +38,10 @@ export const Button = styled.button`
   }
 `;
 
-export const TitleButton = styled.span`
+export const TitleButton = styled(Link)`
   font-size: 13px;
   line-height: 17px;
+  text-decoration: none;
   font-weight: 500;
   color: ${({ theme }) => theme.colors.black};
   text-transform: uppercase;

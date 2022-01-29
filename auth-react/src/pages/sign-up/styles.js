@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { GiPadlock } from "react-icons/gi";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   display: flex;
@@ -126,7 +127,8 @@ export const TitleButton = styled.span`
   color: ${({ theme }) => theme.colors.primary};
 `;
 
-export const ButtonLink = styled.button`
+export const ButtonLink = styled(Link)`
+  text-decoration: none;
   display: flex;
   align-self: flex-end;
   background-color: transparent;

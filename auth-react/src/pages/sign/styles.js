@@ -122,9 +122,10 @@ export const TitleButton = styled.span`
   color: ${({ theme }) => theme.colors.primary};
 `;
 
-export const ButtonLink = styled.button`
+export const ButtonLink = styled(Link)`
   display: flex;
   align-self: flex-start;
+  text-decoration: none;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -138,6 +139,7 @@ export const ButtonLink = styled.button`
 
 export const FooterTitle = styled.p`
   font-size: 13px;
+  text-decoration: none;
   line-height: 17px;
   font-weight: 300;
   color: ${({ theme }) => theme.colors.blue};

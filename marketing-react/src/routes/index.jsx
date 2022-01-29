@@ -7,7 +7,7 @@ export const RoutesApp = ({ history }) => {
   return (
     <Router history={history}>
       <Switch>
-        <Route exact path="/" component={LandingPage} />
+        <Route path="/" component={LandingPage} />
         <Route path="/pricing" component={Pricing} />
       </Switch>
     </Router>
