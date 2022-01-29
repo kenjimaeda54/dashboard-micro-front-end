@@ -12,6 +12,7 @@ const devConfig = {
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "../dist"),
+    publicPath: "http://localhost:2050/",
   },
   resolve: {
     extensions: [".js", ".jsx", ".json"],
