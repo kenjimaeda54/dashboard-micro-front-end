@@ -1,14 +1,14 @@
 import React from "react";
 import { Route, Switch, Router } from "react-router-dom";
-import { Pricing } from "../pages/pricing";
-import { LandingPage } from "../pages/landing-page";
+import { SignUp } from "../pages/sign-up";
+import { SignIn } from "../pages/sign";
 
 export const RoutesApp = ({ history }) => {
   return (
     <Router history={history}>
       <Switch>
-        <Route path="/" component={LandingPage} />
-        <Route path="/pricing" component={Pricing} />
+        <Route exact path="/auth/signin" component={SignIn} />
+        <Route path="/auth/signup" component={SignUp} />
       </Switch>
     </Router>
   );

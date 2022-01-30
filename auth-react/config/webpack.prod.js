@@ -10,17 +10,17 @@ const productionConfig = {
   mode: "production",
   output: {
     filename: "[name].[contenthash].js",
-    publicPath: "/marketing/latest/",
+    publicPath: "/auth/latest/",
   },
   resolve: {
     extensions: [".js", ".jsx", ".json"],
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "marketing",
+      name: "auth",
       filename: "remoteEntry.js",
       exposes: {
-        "./MarketApp": "./src/bootstrap.jsx",
+        "./AuthApp": "./src/bootstrap.jsx",
       },
       shared: dependencies,
     }),

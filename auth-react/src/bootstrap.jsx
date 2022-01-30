@@ -8,6 +8,9 @@ const mount = (element, { onNavigate, defaultHistory, initialPathName }) => {
   const history =
     defaultHistory ||
     createMemoryHistory({
+      //esse initialEntries é para que o app inicie com a pagina que esta na url
+      //memory nao tem o histórico. Nosso container as rotas e em browser router,entao assim faco que ambos fiquem na mesma url
+      //se nao poderia acontecer de ir para uma url vazia
       initialEntries: [initialPathName],
     });
   if (onNavigate) {
@@ -23,7 +26,7 @@ const mount = (element, { onNavigate, defaultHistory, initialPathName }) => {
 };
 
 if (process.env.NODE_ENV === "development") {
-  const root = document.getElementById("root");
+  const root = document.getElementById("rootAuth");
   if (root) {
     mount(root, { defaultHistory: createBrowserHistory() });
   }

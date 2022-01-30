@@ -12,6 +12,7 @@ const devConfig = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, '../dist'),
+    publicPath: 'http://localhost:4050/',
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
@@ -36,6 +37,7 @@ const devConfig = {
       name: 'App',
       remotes: {
         marketing: 'marketing@http://localhost:3050/remoteEntry.js',
+        auth: 'auth@http://localhost:2050/remoteEntry.js',
       },
       shared: dependencies,
     }),

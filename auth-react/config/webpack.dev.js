@@ -12,7 +12,7 @@ const devConfig = {
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "../dist"),
-    publicPath: "http://localhost:3050/",
+    publicPath: "http://localhost:2050/",
   },
   resolve: {
     extensions: [".js", ".jsx", ".json"],
@@ -23,7 +23,7 @@ const devConfig = {
     static: {
       directory: "./public",
     },
-    port: 3050,
+    port: 2050,
     hot: true,
     open: true,
     historyApiFallback: true,
@@ -34,10 +34,10 @@ const devConfig = {
   plugins: [
     new CleanWebpackPlugin(),
     new ModuleFederationPlugin({
-      name: "marketing",
+      name: "auth",
       filename: "remoteEntry.js",
       exposes: {
-        "./MarketApp": "./src/bootstrap.jsx",
+        "./AuthApp": "./src/bootstrap.jsx",
       },
       // compartilhando as dependências aqui diminuo bastante o tamanho do arquivo
       // quando bate com as dependências do container se for igual ele vai decidir usar apenas um
@@ -45,7 +45,7 @@ const devConfig = {
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
-      title: "Marketing React",
+      title: "Auth React",
     }),
   ],
 };

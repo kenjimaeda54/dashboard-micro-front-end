@@ -1,12 +1,14 @@
-import React from 'react';
-import MarketingReact from './components/marketing-react';
+import React, { Fragment } from 'react';
+import { ThemeProvider } from 'styled-components';
+import Route from './routes';
+import GlobalStyle from './GlobalStyle';
+import theme from './styles/theme';
 
 export const App = () => {
   return (
-    <div>
-      <h1>ola mundo</h1>
-      <hr />
-      <MarketingReact />
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Route />
+    </ThemeProvider>
   );
 };
