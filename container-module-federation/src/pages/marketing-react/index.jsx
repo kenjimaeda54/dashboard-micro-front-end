@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from 'react';
 import { mount } from 'marketing/MarketApp';
+import React, { useRef, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 export default () => {
@@ -14,13 +14,12 @@ export default () => {
       initialPathName: history.location.pathname,
       onNavigate: ({ pathname: route }) => {
         const { pathname } = history.location;
-        console.log('estou chegando no marketing', route, pathname);
         if (pathname !== route) {
           history.push(route);
         }
       },
     });
-    history.listen(onParentNavigate);
+    return history.listen(onParentNavigate);
   }, []);
   // ref e um objeto
   return <div ref={refMarketing} />;

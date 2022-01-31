@@ -10,6 +10,7 @@ const mount = (element, { onNavigate, defaultHistory, initialPathName }) => {
     createMemoryHistory({
       initialEntries: [initialPathName],
     });
+  console.log("no marketing", initialPathName);
   if (onNavigate) {
     history.listen(onNavigate);
   }
@@ -23,8 +24,6 @@ const mount = (element, { onNavigate, defaultHistory, initialPathName }) => {
   return {
     onParentNavigate: ({ pathname: nextPathname }) => {
       const { pathname } = history.location;
-      console.log("rota atual do marketing", pathname);
-      console.log("estou do container", nextPathname);
       if (pathname !== nextPathname) {
         history.push(nextPathname);
       }

@@ -13,6 +13,7 @@ const mount = (element, { onNavigate, defaultHistory, initialPathName }) => {
       //se nao poderia acontecer de ir para uma url vazia
       initialEntries: [initialPathName],
     });
+  console.log("no auth", initialPathName);
   if (onNavigate) {
     history.listen(onNavigate);
   }

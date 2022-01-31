@@ -4,7 +4,6 @@ const path = require("path");
 const { ModuleFederationPlugin } = require("webpack").container;
 const webPackCommon = require("./webpack.common");
 const { dependencies } = require("../package.json");
-const { SourceMapDevToolPlugin } = require("webpack");
 
 const devConfig = {
   mode: "development",
@@ -39,9 +38,6 @@ const devConfig = {
     new HtmlWebpackPlugin({
       template: "./public/index.html",
       title: "Marketing React",
-    }),
-    new SourceMapDevToolPlugin({
-      filename: "[file].map",
     }),
   ],
 };
