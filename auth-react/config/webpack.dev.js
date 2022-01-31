@@ -1,8 +1,8 @@
 const { merge } = require("webpack-merge");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
+const { SourceMapDevToolPlugin } = require("webpack");
 const webPackCommon = require("./webpack.common");
 const { dependencies } = require("../package.json");
 
@@ -10,8 +10,6 @@ const devConfig = {
   mode: "development",
   entry: "./src/index.js",
   output: {
-    filename: "[name].js",
-    path: path.resolve(__dirname, "../dist"),
     publicPath: "http://localhost:2050/",
   },
   resolve: {
@@ -20,19 +18,17 @@ const devConfig = {
     // se for usar tsx tambem precisa colocar aqui
   },
   devServer: {
-    static: {
-      directory: "./public",
-    },
     port: 2050,
     hot: true,
     open: true,
-    historyApiFallback: true,
-    devMiddleware: {
-      writeToDisk: true,
+    //quando o historyFallBack nao encontrar o html
+    //ou as imagens coloca uma barra
+    //no meu caso a tela ficava em branco
+    historyApiFallback: {
+      index: "/index.html",
     },
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new ModuleFederationPlugin({
       name: "auth",
       filename: "remoteEntry.js",
@@ -46,6 +42,9 @@ const devConfig = {
     new HtmlWebpackPlugin({
       template: "./public/index.html",
       title: "Auth React",
+    }),
+    new SourceMapDevToolPlugin({
+      filename: "[file].map",
     }),
   ],
 };

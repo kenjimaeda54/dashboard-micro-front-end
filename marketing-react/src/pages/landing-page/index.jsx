@@ -30,10 +30,10 @@ export const LandingPage = () => {
             </Description>
             <WrapButton>
               <Button>
-                <TitleButton to="pricing">Pricing</TitleButton>
+                <TitleButton to="/pricing">Pricing</TitleButton>
               </Button>
               <Button>
-                <TitleButton to="pricing">Pricing</TitleButton>
+                <TitleButton to="/pricing">Pricing</TitleButton>
               </Button>
             </WrapButton>
           </SubWrap>

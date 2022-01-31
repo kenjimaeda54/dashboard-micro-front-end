@@ -5,11 +5,11 @@ import GlobalStyles from "./GlobalStyles";
 import theme from "./styles/theme";
 import { RoutesApp } from "./routes";
 
-const App = ({ history }) => {
+const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <RoutesApp history={history} />
+      <RoutesApp />
     </ThemeProvider>
   );
 };

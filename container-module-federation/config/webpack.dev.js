@@ -1,17 +1,15 @@
 const { merge } = require('webpack-merge');
 
 const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { ModuleFederationPlugin } = require('webpack').container;
 const webPackCommon = require('./webpack.common');
 const { dependencies } = require('../package.json');
+const { SourceMapDevToolPlugin } = require('webpack');
 
 const devConfig = {
   mode: 'development',
   entry: './src/index.js',
   output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, '../dist'),
     publicPath: 'http://localhost:4050/',
   },
   resolve: {
@@ -20,19 +18,14 @@ const devConfig = {
     // se for usar tsx tambem precisa colocar aqui
   },
   devServer: {
-    static: {
-      directory: './public',
-    },
     port: 4050,
     hot: true,
     open: true,
-    historyApiFallback: true,
-    devMiddleware: {
-      writeToDisk: true,
+    historyApiFallback: {
+      index: 'index.html',
     },
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new ModuleFederationPlugin({
       name: 'App',
       remotes: {
@@ -40,6 +33,9 @@ const devConfig = {
         auth: 'auth@http://localhost:2050/remoteEntry.js',
       },
       shared: dependencies,
+    }),
+    new SourceMapDevToolPlugin({
+      filename: '[name].map',
     }),
   ],
 };

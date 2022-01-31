@@ -7,21 +7,21 @@ export default () => {
   const history = useHistory();
 
   //estamos criando um objeto para lidar com navegação entre filho
-  //e o pai,agora a funcao mount recebe dois parâmetro, um elemento html
+  //e o pai,agora a função mount recebe dois parâmetro, um elemento html
   //e um objeto que contem as funções de navegação
   useEffect(() => {
-    console.log(history.location.pathname);
     const { onParentNavigate } = mount(refMarketing.current, {
       initialPathName: history.location.pathname,
       onNavigate: ({ pathname: route }) => {
         const { pathname } = history.location;
+        console.log('estou chegando no marketing', route, pathname);
         if (pathname !== route) {
           history.push(route);
         }
       },
     });
     history.listen(onParentNavigate);
-  });
+  }, []);
   // ref e um objeto
   return <div ref={refMarketing} />;
 };

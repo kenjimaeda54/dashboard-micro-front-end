@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 export default () => {
   const refAuth = useRef(null);
   const history = useHistory();
+  console.log('estou no auth do container');
 
   useEffect(() => {
     const { onParentNavigate } = mount(refAuth.current, {
@@ -18,7 +19,7 @@ export default () => {
       },
     });
     history.listen(onParentNavigate);
-  });
+  }, []);
 
   return <div ref={refAuth} />;
 };

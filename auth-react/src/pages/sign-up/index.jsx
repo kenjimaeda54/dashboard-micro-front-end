@@ -50,7 +50,7 @@ export const SignUp = () => {
             <Button>
               <TitleButton>Sing Up</TitleButton>
             </Button>
-            <ButtonLink to="/auth/signin">
+            <ButtonLink to="/auth/signin/">
               Already have an account? Sing in
             </ButtonLink>
           </Footer>

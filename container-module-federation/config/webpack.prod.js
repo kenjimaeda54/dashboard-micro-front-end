@@ -20,6 +20,7 @@ const configProduction = {
       remotes: {
         // posso ter vários remotes entry nesse caso
         marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`,
+        auth: `auth@${domain}/auth/latest/remoteEntry.js`,
       },
       shared: dependencies,
     }),

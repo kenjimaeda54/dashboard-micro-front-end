@@ -1,5 +1,5 @@
 import React, { StrictMode } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Router } from "react-router-dom";
 import { createMemoryHistory, createBrowserHistory } from "history";
 import ReactDOM from "react-dom";
 import App from "./app";
@@ -17,10 +17,22 @@ const mount = (element, { onNavigate, defaultHistory, initialPathName }) => {
     history.listen(onNavigate);
   }
 
-  ReactDOM.render(<App history={history} />, element);
+  ReactDOM.render(
+    <Router history={history}>
+      <App />
+    </Router>,
+    element
+  );
   return {
-    onParentNavigate: ({ pathname }) => {
-      history.push(pathname);
+    onParentNavigate: ({ pathname: nextPathname }) => {
+      const { pathname } = history.location;
+      //esta e melhor forma debugar a acao do pai com o filho
+      //no pai enxergo as mudanças no filho da url por aqui
+      console.log("rota atual do auth", pathname);
+      console.log("estou do container", nextPathname);
+      if (pathname !== nextPathname) {
+        history.push(nextPathname);
+      }
     },
   };
 };
