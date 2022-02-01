@@ -14,22 +14,22 @@ const devConfig = {
   resolve: {
     extensions: [".js", ".jsx", ".json"],
     // para webpack entender a extensão jsx
-    // se for usar tsx tambem precisa colocar aqui
+    // se for usar tsx também precisa colocar aqui
   },
   devServer: {
-    port: 3050,
-    hot: true,
-    open: true,
-    historyApiFallback: {
-      index: "index.html",
+    static: {
+      directory: path.join(__dirname, "public"),
     },
+    port: 3050,
+    open: true,
+    historyApiFallback: true,
   },
   plugins: [
     new ModuleFederationPlugin({
       name: "marketing",
       filename: "remoteEntry.js",
       exposes: {
-        "./MarketApp": "./src/bootstrap.jsx",
+        "./MarketApp": "./src/bootstrap.js",
       },
       // compartilhando as dependências aqui diminuo bastante o tamanho do arquivo
       // quando bate com as dependências do container se for igual ele vai decidir usar apenas um

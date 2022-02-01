@@ -3,11 +3,11 @@ import React, { useEffect, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 
 export default () => {
-  const refAuth = useRef(null);
+  const ref = useRef(null);
   const history = useHistory();
 
   useEffect(() => {
-    const { onParentNavigate } = mount(refAuth.current, {
+    const { onParentNavigate, initialPathName } = mount(ref.current, {
       //ele vai pegar a path atual que esta no histórico do browser
       initialPathName: history.location.pathname,
       onNavigate: ({ pathname: route }) => {
@@ -17,8 +17,8 @@ export default () => {
         }
       },
     });
-    return history.listen(onParentNavigate);
+    history.listen(onParentNavigate);
   }, []);
 
-  return <div ref={refAuth} />;
+  return <div ref={ref} />;
 };

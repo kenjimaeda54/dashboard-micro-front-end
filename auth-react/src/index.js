@@ -1,4 +1,1 @@
-import("./bootstrap.jsx").catch((error) =>
-console.log('Auth service is down'),
-);
-;
+import("./bootstrap").catch((error) => console.log("Auth service is down"));

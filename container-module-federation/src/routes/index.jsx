@@ -1,5 +1,7 @@
-import React, { Fragment, Suspense, lazy } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React, { Fragment, Suspense, lazy, useState, useEffect } from 'react';
+import { Switch, Route, BrowserRouter, useLocation } from 'react-router-dom';
+import { Loading } from '../components/loading';
+import { Container } from './styles';
 import Header from '../components/header';
 
 export default () => {
@@ -7,9 +9,14 @@ export default () => {
   const LazyMarketingApp = lazy(() => import('../pages/marketing-react'));
 
   return (
-    <Fragment>
+    <BrowserRouter>
       <Header />
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense
+        fallback={
+          <Container>
+            <Loading />
+          </Container>
+        }>
         <Switch>
           {/* precisa importar nos componentes a path initial, porque aqui e browser
        dai o memory precisa entender quem sao as url */}
@@ -17,6 +24,6 @@ export default () => {
           <Route path='/' component={LazyMarketingApp} />
         </Switch>
       </Suspense>
-    </Fragment>
+    </BrowserRouter>
   );
 };

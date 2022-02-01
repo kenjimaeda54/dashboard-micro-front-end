@@ -18,21 +18,21 @@ const devConfig = {
   },
   devServer: {
     port: 2050,
-    hot: true,
+    static: {
+      directory: path.join(__dirname, "public"),
+    },
     open: true,
     //quando o historyFallBack nao encontrar o html
     //ou as imagens coloca uma barra
     //no meu caso a tela ficava em branco
-    historyApiFallback: {
-      index: "/index.html",
-    },
+    historyApiFallback: true,
   },
   plugins: [
     new ModuleFederationPlugin({
       name: "auth",
       filename: "remoteEntry.js",
       exposes: {
-        "./AuthApp": "./src/bootstrap.jsx",
+        "./AuthApp": "./src/bootstrap.js",
       },
       // compartilhando as dependências aqui diminuo bastante o tamanho do arquivo
       // quando bate com as dependências do container se for igual ele vai decidir usar apenas um
