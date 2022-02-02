@@ -3,7 +3,7 @@ import { useLocation, Router } from "react-router-dom";
 import { createMemoryHistory, createBrowserHistory } from "history";
 import ReactDOM from "react-dom";
 import App from "./app";
-//
+
 const mount = (element, { onNavigate, defaultHistory, initialPathName }) => {
   const history =
     defaultHistory ||
