@@ -1,15 +1,17 @@
 import React from "react";
 import { Route, Switch, Router } from "react-router-dom";
-import { Pricing } from "../pages/pricing";
-import { LandingPage } from "../pages/landing-page";
+import { SignUp } from "../pages/sign-up";
+import { SignIn } from "../pages/sign";
 
-export const RoutesApp = ({ history }) => {
+export const RoutesApp = ({ onSingIn }) => {
   return (
-    <Router history={history}>
-      <Switch>
-        <Route exact path="/" component={LandingPage} />
-        <Route path="/pricing" component={Pricing} />
-      </Switch>
-    </Router>
+    <Switch>
+      <Route path="/auth/signin">
+        <SignIn onSingIn={onSingIn} />
+      </Route>
+      <Route path="/auth/signup">
+        <SignUp onSingIn={onSingIn} />
+      </Route>
+    </Switch>
   );
 };

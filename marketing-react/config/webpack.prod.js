@@ -10,6 +10,7 @@ const productionConfig = {
   mode: "production",
   output: {
     filename: "[name].[contenthash].js",
+    //isso e por causa do amazon aw3
     publicPath: "/marketing/latest/",
   },
   resolve: {

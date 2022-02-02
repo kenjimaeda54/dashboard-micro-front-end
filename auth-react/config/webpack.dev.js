@@ -1,7 +1,6 @@
 const { merge } = require("webpack-merge");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { ModuleFederationPlugin } = require("webpack").container;
 const webPackCommon = require("./webpack.common");
 const { dependencies } = require("../package.json");
@@ -10,8 +9,7 @@ const devConfig = {
   mode: "development",
   entry: "./src/index.js",
   output: {
-    filename: "[name].js",
-    path: path.resolve(__dirname, "../dist"),
+    publicPath: "http://localhost:2050/",
   },
   resolve: {
     extensions: [".js", ".jsx", ".json"],
@@ -19,24 +17,22 @@ const devConfig = {
     // se for usar tsx tambem precisa colocar aqui
   },
   devServer: {
-    static: {
-      directory: "./public",
-    },
     port: 2050,
-    hot: true,
-    open: true,
-    historyApiFallback: true,
-    devMiddleware: {
-      writeToDisk: true,
+    static: {
+      directory: path.join(__dirname, "public"),
     },
+    open: true,
+    //quando o historyFallBack nao encontrar o html
+    //ou as imagens coloca uma barra
+    //no meu caso a tela ficava em branco
+    historyApiFallback: true,
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new ModuleFederationPlugin({
       name: "auth",
       filename: "remoteEntry.js",
       exposes: {
-        "./AuthApp": "./src/bootstrap.jsx",
+        "./AuthApp": "./src/bootstrap.js",
       },
       // compartilhando as dependências aqui diminuo bastante o tamanho do arquivo
       // quando bate com as dependências do container se for igual ele vai decidir usar apenas um
