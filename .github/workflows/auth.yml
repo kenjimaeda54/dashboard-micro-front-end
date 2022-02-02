@@ -3,9 +3,9 @@ name: Auth deployment
 on:
   push:
     branches:
-      - 'master'
+      - "master"
     paths:
-      - 'auth-react/**'
+      - "auth-react/**"
     # nosso repo tem varias pastas e  diretórios
     # aqui garanto que ci/cd vai rodar separado
 
@@ -26,18 +26,16 @@ jobs:
       - name: Prepared node js
         uses: actions/setup-node@v2
         with:
-          node-version: '16.x'
+          node-version: "16.x"
       - name: Build project
         run: |
           npm install
           npm run build
-      - name: Where i am
-        run: echo "Eu estou aqui $(pwd)"
       #  a partir do run permite usar o uses como dicionario
       # - uses
       - uses: chrislennon/action-aws-cli@v1.1
         env:
-          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: "true"
       # dist e aonde gerado o build
       - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/auth/latest
-      - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }}  --paths '/auth/latest/*'
+      - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }}  --paths '/auth/latest/remoteEntry.js'
