@@ -20,7 +20,7 @@ const productionConfig = {
       name: "auth",
       filename: "remoteEntry.js",
       exposes: {
-        "./AuthApp": "./src/bootstrap.jsx",
+        "./AuthApp": "./src/bootstrap.js",
       },
       shared: dependencies,
     }),

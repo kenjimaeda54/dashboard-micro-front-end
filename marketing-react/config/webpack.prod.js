@@ -21,7 +21,7 @@ const productionConfig = {
       name: "marketing",
       filename: "remoteEntry.js",
       exposes: {
-        "./MarketApp": "./src/bootstrap.jsx",
+        "./MarketApp": "./src/bootstrap.js",
       },
       shared: dependencies,
     }),
