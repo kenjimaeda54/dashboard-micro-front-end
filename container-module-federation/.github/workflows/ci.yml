@@ -8,7 +8,9 @@ on:
       - '**/container-module-federation'
     # nosso repo tem varias pastas e  diretórios
     #aqui garanto que ci/cd vai rodar separado
-  #
+
+  #quando coloco defaults significa que vou trabalhar nesse direito
+  #github e inteligente de mudar para esse cenário nao preciso usar cd container-module-federation
 defaults:
   run:
     working-directory: '**/container-module-federation'

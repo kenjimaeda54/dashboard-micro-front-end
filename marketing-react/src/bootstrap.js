@@ -5,6 +5,7 @@ import ReactDOM from "react-dom";
 import App from "./app";
 
 const mount = (element, { onNavigate, defaultHistory, initialPathName }) => {
+  //
   const history =
     defaultHistory ||
     createMemoryHistory({
