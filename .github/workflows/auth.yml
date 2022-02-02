@@ -1,0 +1,41 @@
+name: Marketing deployment
+
+on:
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'auth-react/**'
+    # nosso repo tem varias pastas e  diretórios
+    # aqui garanto que ci/cd vai rodar separado
+
+defaults:
+  run:
+    working-directory: ./auth-react
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      #https://github.com/chrislennon/action-aws-cli
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      aws-region: sa-east-1
+    steps:
+      - uses: actions/checkout@v2
+      - name: Prepared node js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+      - name: Build project
+        run: |
+          npm install
+          npm run build
+      #  a partir do run permite usar o uses como dicionario
+      # - uses
+      - uses: chrislennon/action-aws-cli@v1.1
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+      # dist e aonde gerado o build
+      - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/auth/latest
+      - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }}  --paths '/auth/latest/remoteEntry.js'
