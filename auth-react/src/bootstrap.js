@@ -14,7 +14,7 @@ const mount = (
       //esse initialEntries é para que o app inicie com a pagina que esta na url
       //memory nao tem o histórico. Nosso container as rotas e em browser router,entao assim faco que ambos fiquem na mesma url
       //se nao poderia acontecer de ir para uma url vazia
-      //
+
       initialEntries: [initialPathName],
     });
 
