@@ -5,7 +5,6 @@ import { useHistory } from 'react-router-dom';
 export default () => {
   const ref = useRef(null);
   const history = useHistory();
-  console.log('olha o marketing no container sendo chamado');
   //estamos criando um objeto para lidar com navegação entre filho
   //e o pai,agora a função mount recebe dois parâmetro, um elemento html
   //e um objeto que contem as funções de navegação
