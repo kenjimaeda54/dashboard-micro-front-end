@@ -4,7 +4,6 @@ import { createMemoryHistory, createBrowserHistory } from "history";
 import ReactDOM from "react-dom";
 import App from "./app";
 
-//
 const mount = (
   element,
   { onNavigate, onSingIn, defaultHistory, initialPathName }
