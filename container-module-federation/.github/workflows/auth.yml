@@ -38,4 +38,4 @@ jobs:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
       # dist e aonde gerado o build
       - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/auth/latest
-      - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }}  --paths '/auth/latest/*'
+      - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }}  --paths '/auth/latest/remoteEntry.js'
