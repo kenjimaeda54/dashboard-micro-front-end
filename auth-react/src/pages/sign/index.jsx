@@ -19,7 +19,7 @@ import {
   FooterTitle,
 } from "./styles";
 
-export const SignIn = () => {
+export const SignIn = ({ onSingIn }) => {
   return (
     <Container>
       <WrapContainer>
@@ -39,7 +39,7 @@ export const SignIn = () => {
             <TitleCheckBox>Remember</TitleCheckBox>
           </WrapArticleCheckBox>
           <Footer>
-            <Button>
+            <Button onClick={onSingIn}>
               <TitleButton>Sing Up</TitleButton>
             </Button>
             <ButtonLink to="/auth/signup/">

@@ -4,7 +4,10 @@ import { createMemoryHistory, createBrowserHistory } from "history";
 import ReactDOM from "react-dom";
 import App from "./app";
 
-const mount = (element, { onNavigate, defaultHistory, initialPathName }) => {
+const mount = (
+  element,
+  { onNavigate, onSingIn, defaultHistory, initialPathName }
+) => {
   const history =
     defaultHistory ||
     createMemoryHistory({
@@ -20,7 +23,7 @@ const mount = (element, { onNavigate, defaultHistory, initialPathName }) => {
 
   ReactDOM.render(
     <Router history={history}>
-      <App />
+      <App onSingIn={onSingIn} />
     </Router>,
     element
   );

@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { Container, Title, Button, TitleButton, ButtonWithBorder } from './styles';
+import { useAuth } from '../../hooks/auth';
 
 export default () => {
   const [isClicked, setIsClicked] = useState(false);
+  const { isSingIn, onSingIn } = useAuth();
 
   //esse tipo de rota para esta situação foi melhor abordagem,
   //com link estava redirecionando a path,mas nao modificava o caminho da path
   //nos filhos apenas no browser, apos atualizar manualmente aparecia o conteúdo,
   //dessa forma altera a rota e o conteúdo
   const handleNavigation = (navigation) => {
+    isSingIn && onSingIn((old) => !old);
     window.location.pathname = navigation;
   };
 
@@ -19,10 +22,15 @@ export default () => {
       <ButtonWithBorder onClick={() => handleNavigation('/')}>
         <Title>App</Title>
       </ButtonWithBorder>
-      <Button onClick={() => handleNavigation('/auth/signin')}>
-        {/* rota do filho authApp   */}
-        <TitleButton>Login</TitleButton>
-      </Button>
+      {isSingIn ? (
+        <Button onClick={() => handleNavigation('/')}>
+          <TitleButton> Log out </TitleButton>
+        </Button>
+      ) : (
+        <Button onClick={() => handleNavigation('/auth/signin')}>
+          <TitleButton> Log in </TitleButton>
+        </Button>
+      )}
     </Container>
   );
 };
