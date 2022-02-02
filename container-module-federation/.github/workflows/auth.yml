@@ -31,7 +31,8 @@ jobs:
         run: |
           npm install
           npm run build
-          echo "Estou no $(pwd)"
+      - name: Where i am
+        run: echo "Estou no $(pwd)"
       #  a partir do run permite usar o uses como dicionario
       # - uses
       - uses: chrislennon/action-aws-cli@v1.1
