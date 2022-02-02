@@ -4,10 +4,10 @@ import { Loading } from '../components/loading';
 import { Container } from './styles';
 import Header from '../components/header';
 
-export default () => {
-  const LazyAuthApp = lazy(() => import('../pages/auth-react'));
-  const LazyMarketingApp = lazy(() => import('../pages/marketing-react'));
+const LazyAuthApp = lazy(() => import('../pages/auth-react'));
+const LazyMarketingApp = lazy(() => import('../pages/marketing-react'));
 
+export default () => {
   return (
     <BrowserRouter>
       <Header />
