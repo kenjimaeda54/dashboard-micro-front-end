@@ -1,4 +1,4 @@
-name: Marketing deployment
+name: Auth deployment
 
 on:
   push:
