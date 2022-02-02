@@ -20,7 +20,7 @@ export default () => {
         <Switch>
           {/* precisa importar nos componentes a path initial, porque aqui e browser
        dai o memory precisa entender quem sao as url */}
-          <Route path={['/auth/**/']} component={LazyAuthApp} />
+          <Route path={['/auth/signin', '/auth/signup']} component={LazyAuthApp} />
           <Route path='/' component={LazyMarketingApp} />
         </Switch>
       </Suspense>

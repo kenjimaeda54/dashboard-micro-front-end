@@ -10,7 +10,7 @@ const productionConfig = {
   mode: "production",
   output: {
     filename: "[name].[contenthash].js",
-    publicPath: "/auth/latest/",
+    publicPath: "/auth/latest",
   },
   resolve: {
     extensions: [".js", ".jsx", ".json"],
