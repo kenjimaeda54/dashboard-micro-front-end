@@ -278,7 +278,7 @@ export default () => {
 - Essa abordagem e diferente, porque o aws usa o S3 para armazenar os builds da aplicação, então dessa forma isolo todos os aplicativos e eles se conectam no aws
 - Inclusive no CI/CD fica evidente esse uso do S3
 
-``` json
+``` javascript
 
 
  new ModuleFederationPlugin({
