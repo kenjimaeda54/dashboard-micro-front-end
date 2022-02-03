@@ -274,8 +274,34 @@ export default () => {
 
 - Em aplicativos que envolve complexos aplicativos com muitos estilos o ideal é usar folha de estilo que deixa o css escopado
 - Com styled component, ele implementa hash nas tags assim evita o efeito cascata de css
+- Em produção usei abordagem diferente para comunicar entre os pais e filhos, se  possuir  duvida como os filhos se conectam com os pais pode usar esse [repositório](https://github.com/kenjimaeda54/ecommerce-micro-front-end) para entender
+- Essa abordagem e diferente, porque o aws usa o S3 para armazenar os builds da aplicação, então dessa forma isolo todos os aplicativos e eles se conectam no aws
+- Inclusive no CI/CD fica evidente esse uso do S3
+
+``` json
 
 
+ new ModuleFederationPlugin({
+      name: 'App',
+      remotes: {
+        // posso ter vários remotes entry nesse caso
+        marketing: `marketing@${domain}/marketing/latest/remoteEntry.js`,
+        auth: `auth@${domain}/auth/latest/remoteEntry.js`,
+        dashboard: `dashboard@${domain}/dashboard/latest/remoteEntry.js`,
+      },
+      shared: dependencies,
+    }),
+
+```
+``` yml
+
+ - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/auth/latest
+ - run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }}  --paths '/auth/latest/remoteEntry.js'
+
+
+```
+
+##
 
 
 
