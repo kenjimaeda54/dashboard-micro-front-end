@@ -12,7 +12,7 @@ export default () => {
   //nos filhos apenas no browser, apos atualizar manualmente aparecia o conteúdo,
   //dessa forma altera a rota e o conteúdo
   const handleNavigation = (navigation) => {
-    isSingIn && onSingIn((old) => !old);
+    isSingIn && onSingIn();
     window.location.pathname = navigation;
   };
 
