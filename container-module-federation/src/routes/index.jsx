@@ -22,9 +22,6 @@ export default () => {
   }, [isSingIn]);
 
   return (
-    //precisei controlar o refresh,porque em outros arquivos estou usando o history
-    //por algum motivo o broswer so esta mudando de rota apos uma pequeno refresh no navegador
-    //ele nao esta entendo o history
     <Router history={history}>
       <Header />
       <Suspense
