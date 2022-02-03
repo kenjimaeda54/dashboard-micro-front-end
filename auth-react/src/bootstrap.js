@@ -29,15 +29,11 @@ const mount = (
     element
   );
   return {
-    initialPathName,
     onParentNavigate: ({ pathname: nextPathname }) => {
       const { pathname } = history.location;
-      //esta e melhor forma debugar a acao do pai com o filho
-      //no pai enxergo as mudanças no filho da url por aqui
       if (pathname !== nextPathname) {
         history.push(nextPathname);
       }
-      return nextPathname;
     },
   };
 };

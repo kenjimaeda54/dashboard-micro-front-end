@@ -22,7 +22,6 @@ const mount = (element, { onNavigate, defaultHistory, initialPathName }) => {
     element
   );
   return {
-    initialPathName,
     onParentNavigate: ({ pathname: nextPathname }) => {
       const { pathname } = history.location;
       if (pathname !== nextPathname) {

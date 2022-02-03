@@ -9,7 +9,7 @@ export default () => {
   const { onSingIn } = useAuth();
 
   useEffect(() => {
-    const { onParentNavigate, initialPathName } = mount(ref.current, {
+    const { onParentNavigate } = mount(ref.current, {
       //ele vai pegar a path atual que esta no histórico do browser
       initialPathName: history.location.pathname,
       onNavigate: ({ pathname: route }) => {

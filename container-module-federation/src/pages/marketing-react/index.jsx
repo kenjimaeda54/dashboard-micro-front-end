@@ -9,7 +9,7 @@ export default () => {
   //e o pai,agora a função mount recebe dois parâmetro, um elemento html
   //e um objeto que contem as funções de navegação
   useEffect(() => {
-    const { onParentNavigate, initialPathName } = mount(ref.current, {
+    const { onParentNavigate } = mount(ref.current, {
       initialPathName: history.location.pathname,
       onNavigate: ({ pathname: route }) => {
         const { pathname } = history.location;
