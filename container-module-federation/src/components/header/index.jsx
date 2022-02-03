@@ -11,8 +11,9 @@ export default () => {
   //com link estava redirecionando a path,mas nao modificava o caminho da path
   //nos filhos apenas no browser, apos atualizar manualmente aparecia o conteúdo,
   //dessa forma altera a rota e o conteúdo
-  const handleNavigation = (navigation) => {
-    isSingIn && onSingIn((old) => !old);
+  //pathname so funciona no desenvolvimento, no produção não funciona
+  const handleLogin = () => {
+    isSingIn && onSingIn();
     // window.location.pathname = navigation;
   };
 
@@ -23,7 +24,7 @@ export default () => {
         <Title to='/'>App</Title>
       </ButtonWithBorder>
       {isSingIn ? (
-        <Button>
+        <Button onClick={handleLogin}>
           <TitleButton to='/'> Log out </TitleButton>
         </Button>
       ) : (
