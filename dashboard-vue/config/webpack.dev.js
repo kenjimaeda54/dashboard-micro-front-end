@@ -25,8 +25,6 @@ const devConfig = {
       exposes: {
         "./DashboardApp": "./src/bootstrap.js",
       },
-      // compartilhando as dependências aqui diminuo bastante o tamanho do arquivo
-      // quando bate com as dependências do container se for igual ele vai decidir usar apenas um
       shared: dependencies,
     }),
     new HtmlWebpackPlugin({
