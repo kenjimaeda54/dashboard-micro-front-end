@@ -22,9 +22,6 @@ const devConfig = {
       directory: path.join(__dirname, "public"),
     },
     open: true,
-    //quando o historyFallBack nao encontrar o html
-    //ou as imagens coloca uma barra
-    //no meu caso a tela ficava em branco
     historyApiFallback: true,
   },
   plugins: [
