@@ -20,15 +20,15 @@ export default () => {
     <Container>
       {/* tem que ser as rotas dos filhos o / e do filho marketing */}
       <ButtonWithBorder onClick={() => handleNavigation('/')}>
-        <Title>App</Title>
+        <Title to='/'>App</Title>
       </ButtonWithBorder>
       {isSingIn ? (
         <Button onClick={() => handleNavigation('/')}>
-          <TitleButton> Log out </TitleButton>
+          <TitleButton to='/'> Log out </TitleButton>
         </Button>
       ) : (
         <Button onClick={() => handleNavigation('/auth/signin')}>
-          <TitleButton> Log in </TitleButton>
+          <TitleButton to='/auth/signin'> Log in </TitleButton>
         </Button>
       )}
     </Container>

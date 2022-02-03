@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.header`
   display: flex;
@@ -15,7 +16,7 @@ export const ButtonWithBorder = styled.button`
   cursor: pointer;
 `;
 
-export const Title = styled.h1`
+export const Title = styled(Link)`
   font-size: 17px;
   line-height: 21px;
   font-weight: 500;
@@ -43,7 +44,7 @@ export const Button = styled.button`
   }
 `;
 
-export const TitleButton = styled.span`
+export const TitleButton = styled(Link)`
   font-size: 13px;
   line-height: 17px;
   text-decoration: none;

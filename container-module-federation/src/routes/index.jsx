@@ -9,6 +9,9 @@ const LazyMarketingApp = lazy(() => import('../pages/marketing-react'));
 
 export default () => {
   return (
+    //precisei controlar o refresh,porque em outros arquivos estou usando o history
+    //por algum motivo o broswer so esta mudando de rota apos uma pequeno refresh no navegador
+    //ele nao esta entendo o history
     <BrowserRouter>
       <Header />
       <Suspense
