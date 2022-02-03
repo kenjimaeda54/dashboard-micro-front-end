@@ -4,7 +4,7 @@ Arquitetura usando micro front end com module Federation Plugin, React e Vue
 
 ## Motivacao
 Praticar conceitos de micro front end e CI/CD </br>
-[Dashboard](https://d2bfxzyow9zlxo.cloudfront.net/)
+[Dashboard](https://d2bfxzyow9zlxo.cloudfront.net/), saite rodando no CloudFront(aws)
 
 ## Feature
 - Para isolar aplicação dos entre as app usei mesma abordagem que neste [repositório](https://github.com/kenjimaeda54/ecommerce-micro-front-end)
