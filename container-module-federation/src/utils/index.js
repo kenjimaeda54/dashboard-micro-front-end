@@ -1,1 +1,1 @@
-const keyStorageRefresh = 'refreshWeb';
+export const keyStorageRefresh = 'refreshWeb';

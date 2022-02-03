@@ -1,4 +1,4 @@
-import React, { Fragment, Suspense, lazy, useState, useEffect } from 'react';
+import React, { Fragment, Suspense, lazy, useState, useEffect, useRef } from 'react';
 import { Switch, Route, BrowserRouter, useLocation } from 'react-router-dom';
 import { Loading } from '../components/loading';
 import { Container } from './styles';

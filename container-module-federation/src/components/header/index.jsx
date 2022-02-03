@@ -12,22 +12,22 @@ export default () => {
   //nos filhos apenas no browser, apos atualizar manualmente aparecia o conteúdo,
   //dessa forma altera a rota e o conteúdo
   const handleNavigation = (navigation) => {
-    isSingIn && onSingIn();
-    window.location.pathname = navigation;
+    isSingIn && onSingIn((old) => !old);
+    // window.location.pathname = navigation;
   };
 
   return (
     <Container>
       {/* tem que ser as rotas dos filhos o / e do filho marketing */}
-      <ButtonWithBorder onClick={() => handleNavigation('/')}>
+      <ButtonWithBorder>
         <Title to='/'>App</Title>
       </ButtonWithBorder>
       {isSingIn ? (
-        <Button onClick={() => handleNavigation('/')}>
+        <Button>
           <TitleButton to='/'> Log out </TitleButton>
         </Button>
       ) : (
-        <Button onClick={() => handleNavigation('/auth/signin')}>
+        <Button>
           <TitleButton to='/auth/signin'> Log in </TitleButton>
         </Button>
       )}
